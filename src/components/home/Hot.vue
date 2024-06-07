@@ -5,4 +5,9 @@
     TabsStreamer(:openCarousel="true")
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hot {
+  width: 100%;
+  height: 100%;
+}
+</style>

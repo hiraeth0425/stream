@@ -3,7 +3,6 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <template lang="pug">
-van-row.guards(justify="space-between")
     van-col.guards-items
         van-tag( round) 
             template(#) 
@@ -23,7 +22,6 @@ van-row.guards(justify="space-between")
 
 <style lang="scss" scoped>
 .guards {
-  margin-top: 10px;
   &-items {
     display: flex;
     gap: 10px;

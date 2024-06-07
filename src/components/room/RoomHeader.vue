@@ -6,13 +6,16 @@ import 'swiper/css'
 
 const props = defineProps(['slidesPerView'])
 const emit = defineEmits(['info'])
+const isFollow = ref(true)
 
-const followStreamer = () => {
-  console.log('followStreamer')
+const followNotify = () => {
+  isFollow.value = !isFollow.value
+  console.log('followNotify')
+  showToast('已關注')
 }
 </script>
 
-<template lang="pug"> 
+<template lang="pug">
       van-col.room-header(span="24")
         van-tag(round @click="()=>emit('info')")
           template(#)
@@ -23,9 +26,10 @@ const followStreamer = () => {
             .info
               h2 龍神快三
               p ID 545646541
-            van-button(round size="mini" @click.stop="followStreamer" color="linear-gradient(to right, #f775af, #fd47a5)")
-              template(#)
-                Icon( icon="material-symbols:heart-plus")
+              van-button.follow(v-if="isFollow" round size="mini" @click.stop="followNotify" color="linear-gradient(to right, #f775af, #fd47a5)" ) 
+                template(#)
+                  Icon( icon="material-symbols:heart-plus")
+      
         .viewer
             swiper.mySwiper(
         slidesPerView="5"
@@ -36,7 +40,6 @@ const followStreamer = () => {
         )
                 swiper-slide(v-for="n in 10" :key="n")
                     div
-                    router-link.game-router(style="position: relative" to="") 
                         van-image( round 
                         width="5rem"
                         height="5rem"
@@ -73,7 +76,7 @@ const followStreamer = () => {
     }
     .van-tag {
       font-size: 16px;
-      padding: 5px;
+      padding: 5px 10px;
       .van-image {
         max-width: 50px;
         max-height: 50px;
@@ -82,10 +85,17 @@ const followStreamer = () => {
         aspect-ratio: 1/1;
       }
       .info {
-        padding: 0 8px;
+        position: relative;
+        padding: 0 60px 0 8px;
         p {
           padding-top: 3px;
           font-size: 12px;
+        }
+        .follow {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(-10%, 5%);
         }
       }
     }

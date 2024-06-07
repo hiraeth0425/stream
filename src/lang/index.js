@@ -1,9 +1,11 @@
 import { createI18n } from 'vue-i18n'
-import enLocale from './en_us'
-import zhtwLocale from './zh_tw'
 import { Locale } from 'vant'
+import enLocale from './en_US'
+import zhtwLocale from './zh_TW'
+import zhcnLocale from './zh_CN'
 import enUS from 'vant/es/locale/lang/en-US'
 import zhTW from 'vant/es/locale/lang/zh-TW'
+import zhCN from 'vant/es/locale/lang/zh-CN'
 
 const messages = {
   en: {
@@ -13,15 +15,27 @@ const messages = {
   zhtw: {
     ...zhtwLocale,
     ...zhTW
+  },
+  zhcn: {
+    ...zhcnLocale,
+    ...zhCN
   }
 }
 
 // 更新vant的語言包
 function vantLocales(lang) {
-  if (lang === 'en') {
-    Locale.use(lang, enUS)
-  } else if (lang === 'zhtw') {
-    Locale.use(lang, zhTW)
+  switch (lang) {
+    case 'en':
+      Locale.use(lang, enUS)
+      break
+    case 'zhtw':
+      Locale.use(lang, zhTW)
+      break
+    case 'zhcn':
+      Locale.use(lang, zhCN)
+      break
+    default:
+      Locale.use(lang, enUS)
   }
 }
 

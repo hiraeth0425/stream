@@ -2,7 +2,6 @@
 
 <template>
   <section>
-    custom
     <RouterView></RouterView>
   </section>
 </template>

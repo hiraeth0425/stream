@@ -1,5 +1,9 @@
 <script setup>
 import { Icon } from '@iconify/vue'
+import { vantLocales } from '@/lang'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
 const props = defineProps(['tropys'])
 
 const getTropy = (i) => {
@@ -80,7 +84,7 @@ const steamerRank = ref([
           div(v-if="/streamer/.test(props.tropys)")          
             Level(#) {{steamer.level}}
             p {{steamer.fire}}
-            van-button.follow(round size="mini" color="linear-gradient(to bottom, #f990a8, #ef3c8a,#f544b5)") 關注
+            van-button.follow(round size="mini" color="linear-gradient(to bottom, #f990a8, #ef3c8a,#f544b5)") {{$t('general.follow')}}
     van-row.toptropy-list(v-for="steamer in steamerRank.slice(3)" :key="i")
       van-col.num(span='2') 4
       van-col(span='17')
@@ -100,7 +104,7 @@ const steamerRank = ref([
               Level(#) {{steamer.level}}
             p {{steamer.fire}}
       van-col(span='5' )
-        van-button.follow(v-if="/streamer/.test(props.tropys)" round size="mini" color="linear-gradient(to bottom, #f990a8, #ef3c8a,#f544b5)") 關注
+        van-button.follow(v-if="/streamer/.test(props.tropys)" round size="mini" color="linear-gradient(to bottom, #f990a8, #ef3c8a,#f544b5)") {{$t('general.follow')}}
    
 </template>
 

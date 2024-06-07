@@ -1,5 +1,9 @@
 <script setup>
 import topTropy from '@/components/TopTropy.vue'
+import { vantLocales } from '@/lang'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
 const activeName = ref('')
 </script>
 
@@ -8,8 +12,8 @@ const activeName = ref('')
       van-nav-bar(left-arrow @click-left="$router.go(-1)")
         template(#title)
           van-tabs(v-model:active="activeName" animated)
-            van-tab(title="主播榜" name="streamer")
-            van-tab(title="土豪榜" name="wealthy")
+            van-tab(:title="$t('general.streamer-board')" name="streamer")
+            van-tab(:title="$t('general.top-donors')" name="wealthy")
       topTropy(:tropys="activeName")
 </template>
 

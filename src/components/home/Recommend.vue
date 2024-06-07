@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { vantLocales } from '@/lang'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
 const images = import.meta.glob('/src/assets/stream/recommend/*.png', {
   import: 'default',
   eager: true
@@ -26,7 +31,7 @@ const recommendImages = Object.keys(images).map((key) => images[key])
           van-swipe-item 今人不见古时月，今月曾经照古人。
       div.recommend-game
         Icon(icon="mdi:fire")
-        |遊戲推薦
+        |{{$t('general.recommendGame')}}
       SwiperStreamer(:slidesPerView="3.5")
       Streamer
 </template>

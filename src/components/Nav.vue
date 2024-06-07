@@ -19,7 +19,8 @@ const { locale } = useI18n()
 const showPopover = ref(false)
 const actions = [
   { text: '繁體中文', value: 'zhtw' },
-  { text: '英文', value: 'en' }
+  { text: '英文', value: 'en' },
+  { text: '簡體中文', value: 'zhcn' }
 ]
 
 const onSelect = (lang) => {
@@ -33,10 +34,10 @@ const onSelect = (lang) => {
 <template>
   <nav class="nav">
     <van-tabs v-model:active="activeComponent" animated>
-      <van-tab title="關注" name="follow"></van-tab>
-      <van-tab title="推薦" name="recommend"></van-tab>
-      <van-tab title="熱門" name="hot"></van-tab>
-      <van-tab title="遊戲" name="game"></van-tab>
+      <van-tab :title="$t('general.focus')" name="follow"></van-tab>
+      <van-tab :title="$t('general.recommend')" name="recommend"></van-tab>
+      <van-tab :title="$t('general.trending')" name="hot"></van-tab>
+      <van-tab :title="$t('general.game')" name="game"></van-tab>
       <!-- 等用戶多再實現功能 -->
       <!-- <van-tab title="附近" name="nearby"></van-tab> -->
       <!-- <van-tab to="/search"
@@ -52,7 +53,7 @@ const onSelect = (lang) => {
             <van-button type="primary">語言</van-button>
           </template>
         </van-popover>
-        <!-- <p>{{ $t('hello') }}</p> -->
+        <p>{{ $t('hello') }}</p>
       </van-tab>
     </van-tabs>
   </nav>

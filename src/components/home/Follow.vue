@@ -1,20 +1,24 @@
 <script setup>
 import { Icon } from '@iconify/vue'
+import { vantLocales } from '@/lang'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
 </script>
 
 <template lang="pug">
     .follow
       .title
         Icon(icon="basil:heart-solid")
-        | 已關注主播
+        | {{$t('general.followed-streamers')}}
       SwiperStreamer(:slidesPerView="3")
       van-divider
       .subtitle
         div
           Icon(icon="mdi:fire")
-          | 為您推薦
+          | {{$t('general.recommended-you')}}
         van-button(size="mini" round plain hairline color="#ff7db6")
-          | 換一批
+          | {{$t('general.batch')}}
       Streamer
 </template>
 

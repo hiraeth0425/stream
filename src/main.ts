@@ -10,6 +10,7 @@ import { i18n, vantLocales } from './lang'
 import '@vant/touch-emulator'
 import VueVirtualScroller from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+import userProviders from './providers'
 
 vantLocales(i18n.locale)
 
@@ -20,5 +21,6 @@ app.use(router)
 app.use(Vant)
 app.use(i18n)
 app.use(VueVirtualScroller)
+app.use(userProviders)
 
 app.mount('#app')

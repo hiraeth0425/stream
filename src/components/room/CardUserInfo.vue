@@ -1,13 +1,6 @@
-<script setup>
-import { onMounted } from 'vue'
-
-const drawerInfo = defineModel('drawerInfo', { default: false })
-
-// drawerInfo => update:modelValue'
-</script>
+<script setup></script>
 
 <template lang="pug">
-  van-dialog(v-model:show="drawerInfo" confirmButtonText="確認")
     .cover 
       .bg-blur
       .avatar
