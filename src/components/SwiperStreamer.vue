@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 
-const props = defineProps(['slidesPerView'])
+const props: { slidesPerView: number } = defineProps(['slidesPerView'])
 </script>
 
 <template lang="pug">

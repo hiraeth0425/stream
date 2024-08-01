@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 
 const props = defineProps(['slidesPerView'])
-const emit = defineEmits(['info'])
+const emit = defineEmits<{ click: [info: string] }>(['info'])
 const isFollow = ref(true)
 
 const followNotify = () => {
